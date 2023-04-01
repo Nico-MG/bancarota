@@ -1,0 +1,16 @@
+{
+    "name": "bancarota",
+    "version": "0.1.0",
+    "description": "Proyecto Taller",
+    "license": "MIT",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    },
+    "dependencies": {
+        "next": "13.0.0",
+        "react": "18.0.0",
+        "react-dom": "18.0.0"
+      }
+}
