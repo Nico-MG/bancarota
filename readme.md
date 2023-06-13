@@ -1,4 +1,4 @@
-# Proeycto BancaRota
+# Proyecto BancaRota
 
 ## Configuracion del proyecto
 
