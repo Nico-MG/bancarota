@@ -1,4 +1,11 @@
-@api = http://localhost:3000/api/?nombre=aurelio&id=2
+# Ejemplo 1
+@api = http://localhost:3000/api/
 
 ### Get all tasks
 GET {{api}}
+
+# Ejemplo 2
+@api2 = http://localhost:3000/api/?nombre=aurelio&id=2
+
+### Get all tasks
+GET {{api2}}
