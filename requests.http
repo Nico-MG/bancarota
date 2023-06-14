@@ -1,4 +1,4 @@
-@api = http://localhost:3000/api/tasks
+@api = http://localhost:3000/api/?nombre=aurelio&id=2
 
 ### Get all tasks
 GET {{api}}
