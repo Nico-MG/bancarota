@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    outline: 1px red solid;
+}
+
+body {
+    background-color: #f8fafc;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.login {
+    background-color: white;
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.login__button {
+    color: white;
+    background-color: cornflowerblue;
+    height: 30px;
+}
