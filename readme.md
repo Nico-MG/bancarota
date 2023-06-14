@@ -12,5 +12,4 @@
 git clone https://github.com/Nico-MG/bancarota
 cd bancarota
 npm install
-test
 ```
