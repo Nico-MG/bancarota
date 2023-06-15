@@ -15,6 +15,10 @@ body {
     gap: 20px;
 }
 
+#datos {
+    display: none;
+}
+
 .header {
     width: 100vw;
     display: flex;
@@ -22,9 +26,13 @@ body {
     align-items: center
 }
 
+.main {
+    display: flex;
+}
+
 .nav {
-    width: 65vw;
-    height: 150px;
+    width: 10vw;
+    height: 100%;
     padding: 10px;
 }
 
@@ -36,4 +44,3 @@ body {
 .table th {
     height: 40px;
 }
-
