@@ -19,17 +19,19 @@ export default function IndexPage() {
             <table>
                 <thead>
                     <tr>
-                       <th>run</th> 
                        <th>nombre</th> 
-                       <th>fecha de nacimiento</th> 
+                       <th>run</th> 
+                       <th>numero de cuenta</th> 
+                       <th>saldo</th>
                     </tr>
                 </thead>
                 <tbody>
-                {datos?.map((client, idx) => {
-                    return <tr key={idx}>
-                        <td>{client.run}</td>
-                        <td>{client.nombre} {client.apellido}</td>
-                        <td>{client.fecha_nacimiento}</td>
+                {datos?.map(client => {
+                    return <tr key={client.run}>
+                        <td width={'25%'}>{client.nombre} {client.apellido}</td>
+                        <td width={'25%'}>{client.run}</td>
+                        <td width={'25%'}>{client.numero}</td>
+                        <td width={'25%'}>${client.saldo}</td>
                     </tr>
                 })}
                 </tbody>
