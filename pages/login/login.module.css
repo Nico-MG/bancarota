@@ -1,18 +1,9 @@
-* {
-    box-sizing: border-box;
-    outline: 1px red solid;
-}
-
-body {
-    background-color: #f8fafc;
-    margin: 0;
-    padding: 0;
+.login_container {
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: sans-serif;
 }
 
 .login {

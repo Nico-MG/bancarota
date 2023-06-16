@@ -15,10 +15,10 @@ create table cuenta (
 );
 
 create table gerente (
-    correo varchar(20) not null,
+    correo varchar(50) not null,
     nombre varchar(20) not null,
     apellido varchar(20) not null,
-    password int not null
+    password varchar(100) not null
 );
 
 /* Para la información general de la tabla */
@@ -106,3 +106,6 @@ VALUES
     (18, '222-432-000-006', 40000, 'Corriente'),
     (19, '222-432-000-007', 10000, 'Corriente'),
     (20, '222-432-000-008', 85000, 'Corriente');
+
+INSERT INTO gerente (correo, nombre, apellido, password) 
+VALUES ('gerencia@bancarota.cl', 'Cesar', 'Díaz', '$2b$10$VGmsnepPXARjBlXwUESBre5LNdDRMbKZ.AQOahFPBWbdTx2.Q8BMO');
