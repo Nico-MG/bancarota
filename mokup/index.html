@@ -17,23 +17,51 @@
         </div>
         <a href="./login.html" class="header__cerrar">Cerrar Sesión</a>
     </header>
+    <div id="modal">
+        <div class="modal__content">
+        
+            <header class="modal__header">
+                <div class="modal__header--uno">
+                    <h4 class="modal__texto--saldo">
+                        Saldo Total:
+                    </h4>
+                    <h2 class="modal__saldo">
+                        $200000
+                    </h2>
+                </div>
+                <div class="modal__header--dos">
+                    <h4 class="modal__tipo">Cuenta Corriente</h4>
+                    <div class="modal__header--tres">
+                        <h4 class="modal__texto--numero">N° Cuenta:</h4>
+                        <h2 class="modal__numero">
+                            222-444-333-222
+                        </h2>
+                    </div>
+                </div>
+            </header>
+            <main class="modal__main">
+                <p class="modal__texto--nombre"> <b>Nombre:</b> Carlos Ramirez</p>
+                <p class="modal__texto--run"><b>Run:</b> 23.234.234-5</p>
+                <p class="modal__texto--fecha"><b>Fecha de Nacimiento:</b> 25 de enero de 1023</p>
+                <p class="modal__texto--edad"><b>Edad:</b> 39</p>
+
+            </main>
+            <button class="modal__close" onclick="document.getElementById('modal').style.display = 'none'">Cerrar x</button>
+        </div>
+    </div>
     <main class="main">
         
         <nav class="nav">
             aqui colocar filtros
         </nav>
-        <div id="datos">
-            Nombre
-            Apellido
-        </div>
         <table class="table">
-            <tr onclick="document.getElementById('datos').style.display = 'block'">
+            <tr >
                 <th>Nombre</th>
                 <th>RUN</th>
                 <th>Tipo de Cuenta</th>
                 <th>Saldo</th>
             </tr>
-            <tr>
+            <tr onclick="document.getElementById('modal').style.display = 'flex'">
                 <th>Juan Perez</th>
                 <th>11.111.111-8</th>
                 <th>Corriente</th>
@@ -51,13 +79,13 @@
                 <th>Corriente</th>
                 <th>$10000</th>
             </tr>
-                <tr>
-                    <th>Juan Perez</th>
-                    <th>11.111.111-8</th>
-                    <th>Corriente</th>
-                    <th>$10000</th>
-                </tr>
-    
+            <tr>
+                <th>Juan Perez</th>
+                <th>11.111.111-8</th>
+                <th>Corriente</th>
+                <th>$10000</th>
+            </tr>
+            
             <tr>
                 <th>Juan Perez</th>
                 <th>11.111.111-8</th>
