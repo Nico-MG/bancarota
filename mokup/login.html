@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="login.css">
+    <style>
+        .img-circular {
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
     <form class="login" action="" method="post">
-        <img src="#" alt="logo" class="login__logo">
+        <img src="imagenes/Logo.png" alt="logo" width="160" height="150" class="login__logo img-circular">
         <h2 class="login__nombre">Ingreso Gerente</h2>
         <div class="login__form">
             <label class="login__label" for="password">Contraseña: </label>
             <input class="login__pwd" type="password" id="pwd" name="pwd">
-            <input class="login__button" type="button" value="Iniciar Sesión">
+            <input class="login__button" type="button" value="Ingresar">
         </div>
     </form>
 </body>

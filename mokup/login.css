@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    outline: 1px red solid;
+    outline: 1px;
 }
 
 body {
@@ -17,13 +17,17 @@ body {
 
 .login {
     background-color: white;
-    width: 50vw;
-    height: 50vh;
+    width: 380px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     border-radius: 10px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .login__form {
@@ -34,7 +38,7 @@ body {
 }
 
 .login__button {
-    color: white;
-    background-color: cornflowerblue;
+    color: black;
+    background-color: transparent;
     height: 30px;
 }
