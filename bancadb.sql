@@ -18,7 +18,8 @@ create table gerente (
     correo varchar(50) not null,
     nombre varchar(20) not null,
     apellido varchar(20) not null,
-    password varchar(100) not null
+    password varchar(100) not null,
+    primary key (correo)
 );
 
 /* Para la información general de la tabla */
@@ -41,6 +42,25 @@ create view datos_adicionales AS
 select
     c.id,
     c.fecha_nacimiento,
+    t.tipo
+from
+    cliente c,
+    cuenta t
+where
+    c.id = t.id_cliente;
+
+/* 
+VISTA CON TODOS LOS DATOS
+ */
+create view clients_data AS
+select
+    c.id,
+    c.run,
+    c.nombre,
+    c.apellido,
+    c.fecha_nacimiento,
+    t.numero,
+    t.saldo,
     t.tipo
 from
     cliente c,

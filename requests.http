@@ -1,11 +1,25 @@
 # Ejemplo 1
 @api = http://localhost:3000/api/
 
-### Get all tasks
+### Get all data
 GET {{api}}
 
 # Ejemplo 2
-@api2 = http://localhost:3000/api/?id=6&nombre=Carla
+@api2 = http://localhost:3000/api/?page=2&tipo=Corriente
 
-### Get all tasks
+### Get data by query
 GET {{api2}}
+
+# REGISTRO (para crear cuentas de gerente)
+@correo = gerencia@bancarota.cl
+@nombre = Cesar
+@apellido = Díaz
+@password = 9999
+
+@query = correo={{correo}}&nombre={{nombre}}&apellido={{apellido}}&password={{password}}
+@registro = http://localhost:3000/api/registro/?{{query}}
+
+### Agregar gerente
+GET {{registro}}
+
+
