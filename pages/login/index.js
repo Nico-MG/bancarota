@@ -14,7 +14,7 @@ export default function Login() {
             redirect: false,
         });
 
-        if (!result.error) {
+        if (result.ok) {
             router.push("/");
         }
     }

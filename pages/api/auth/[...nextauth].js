@@ -22,8 +22,12 @@ export default NextAuth({
                 const user = await validatePassword(password);
 
                 // Aquí se debe comprobar que las credenciales son correctas
+                if (password === "") {
+                    throw new Error("Debe escribir una contraseña");
+                }
+
                 if (!user.status) {
-                    throw new Error("Incorrect password");
+                    throw new Error("Contraseña incorrecta");
                 }
 
                 // Si las credenciales son correctas, devolvemos el usuario
@@ -38,7 +42,7 @@ export default NextAuth({
     ],
     pages: {
         signIn: "/login",
-        signOut: "/",
+        signOut: "/login",
     },
     jwt: {
         secret,
