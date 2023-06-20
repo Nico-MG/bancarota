@@ -20,7 +20,7 @@ export default async function index(req, res) {
 
 export default async function index(req, res) {
     const http_query = req.query;
-    http_query.pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 5;
+    http_query.pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 10;
     http_query.page = req.query.page ? parseInt(req.query.page) : 1;
 
     const query_string = query_db(http_query);

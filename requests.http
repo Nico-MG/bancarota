@@ -5,7 +5,7 @@
 GET {{api}}
 
 # Ejemplo 2
-@api2 = http://localhost:3000/api/?page=2&tipo=Corriente
+@api2 = http://localhost:3000/api/?tipo=Corriente
 
 ### Get data by query
 GET {{api2}}
