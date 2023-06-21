@@ -37,8 +37,8 @@ Crear en la base de datos las tablas e inserts que están en el archivo **bancad
 ### **Entorno de trabajo**
 
 Para iniciar el entorno de trabajo ejecutar lo siguiente en la terminal:
-```
-npm run dev
+```console
+$ npm run dev
 ```
 Listo!
 
