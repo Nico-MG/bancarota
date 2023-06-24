@@ -18,7 +18,7 @@ export default function IndexPage() {
     return (
         <Protegido>
             <Header />
-            <Main data={datos?.data} />
+            <Main data={datos?.data} changeUrlFetch={setUrlFetch} />
         </Protegido>
     );
 }

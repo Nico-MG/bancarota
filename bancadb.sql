@@ -58,7 +58,7 @@ select
     c.run,
     c.nombre,
     c.apellido,
-    c.fecha_nacimiento,
+    to_char (c.fecha_nacimiento, 'YYYY-MM-DD') as fecha_nacimiento,
     t.numero,
     t.saldo,
     t.tipo

@@ -1,7 +1,16 @@
+import Image from "next/image";
+
 export default function LoginForm({ password, setPassword, handleSubmit }) {
     return (
         <form className="login" onSubmit={handleSubmit}>
-            <img src="#" alt="logo" className="login__logo" />
+            <Image
+                width={110}
+                height={110}
+                alt="Logo BancaRota"
+                src="/logo.svg"
+                draggable="false"
+                className="login__logo"
+            />
             <h2 className="login__nombre">Ingreso Gerente</h2>
             <div className="login__form">
                 <label className="login__label" htmlFor="pwd">
@@ -17,7 +26,7 @@ export default function LoginForm({ password, setPassword, handleSubmit }) {
                     autoComplete="off"
                 />
                 <button className="login__button" type="submit">
-                    Iniciar sesión
+                    INGRESAR
                 </button>
             </div>
         </form>

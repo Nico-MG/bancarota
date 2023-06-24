@@ -1,9 +1,16 @@
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito-VariableFont_wght.ttf");
+}
+
 * {
     box-sizing: border-box;
     outline: 1px red solid;
 }
 
 body {
+    font-family: "Nunito", system-ui;
+    font-size: 12pt;
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -13,6 +20,12 @@ body {
     align-items: center;
     font-family: sans-serif;
     gap: 20px;
+}
+
+label,
+input,
+select {
+    display: block;
 }
 
 #modal {
@@ -32,7 +45,7 @@ body {
 
 .modal__content {
     background-color: #fefefe;
-    width:  700px;
+    width: 700px;
     height: 700px;
     display: flex;
     flex-direction: column;
@@ -67,19 +80,27 @@ body {
 
 .main {
     display: flex;
+    width: 100vw;
+    gap: 12px;
 }
 
 .nav {
-    width: 10vw;
+    width: 20vw;
     height: 100%;
-    padding: 10px;
+    padding: 16px;
 }
 
 .table {
-    width: 85vw;
+    width: 100%;
     padding: 10px;
 }
 
 .table th {
     height: 40px;
+}
+
+.form_filtros {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }

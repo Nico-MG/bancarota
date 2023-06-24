@@ -19,7 +19,7 @@
     </header>
     <div id="modal">
         <div class="modal__content">
-        
+
             <header class="modal__header">
                 <div class="modal__header--uno">
                     <h4 class="modal__texto--saldo">
@@ -46,16 +46,80 @@
                 <p class="modal__texto--edad"><b>Edad:</b> 39</p>
 
             </main>
-            <button class="modal__close" onclick="document.getElementById('modal').style.display = 'none'">Cerrar x</button>
+            <button class="modal__close" onclick="document.getElementById('modal').style.display = 'none'">Cerrar
+                x</button>
         </div>
     </div>
     <main class="main">
-        
+
         <nav class="nav">
-            aqui colocar filtros
+            <h4>Busqueda</h4>
+            <form action="" class="form_filtros">
+                <label for="filtro__nombre">Nombre:
+                    <input type="text" name="nombre" id="filtro__nombre">
+                </label>
+
+                <label for="filtro__apellido">Apellido:
+                    <input type="text" name="apellido" id="filtro__apellido">
+                </label>
+
+                <label for="filtro__run">RUN:
+                    <input type="text" name="run" id="filtro__run">
+                </label>
+
+                <label for="filtro__numero_cuenta">Número de cuenta:
+                    <select name="numeros_cuentas" id="numero_tipo_cuenta">
+                        <option value="000">000</option>
+                        <option value="111">111</option>
+                        <option value="111">222</option>
+                    </select>
+                    <input type="text" name="nombre" id="filtro__numero_cuenta">
+                </label>
+
+                <label for="filtro__edad">Edad:
+                    <input type="text" name="edad" id="filtro__edad">
+                </label>
+
+                <label for="filtro__anyo_nacimiento">Año de nacimiento:
+                    <select name="anyos_nacimiento" id="filtro__anyo_nacimiento">
+                        <option value="1900-1910">Entre 1900 y 1910</option>
+                        <option value="1910-1920">Entre 1910 y 1920</option>
+                        <option value="1920-1930">Entre 1920 y 1930</option>
+                        <option value="1930-1940">Entre 1930 y 1940</option>
+                        <option value="1940-1950">Entre 1940 y 1950</option>
+                        <option value="1950-1960">Entre 1950 y 1960</option>
+                        <option value="1960-1970">Entre 1960 y 1970</option>
+                        <option value="1970-1980">Entre 1970 y 1980</option>
+                        <option value="1980-1990">Entre 1980 y 1990</option>
+                        <option value="1990-2000">Entre 1990 y 2000</option>
+                        <option value="2000-2010">Entre 2000 y 2010</option>
+                        <option value="2010-2020">Entre 2010 y 2020</option>
+                        <option value="2020-2030">Entre 2020 y 2030</option>
+                    </select>
+                </label>
+
+                <label for="filtro__tipo_cuenta">Tipo de cuenta:
+                    <select name="tipo_cuenta" id="filtro__tipo_cuenta">
+                        <option value="Corriente">Corriente</option>
+                        <option value="Ahorro">Ahorro</option>
+                        <option value="Vista">Vista</option>
+                    </select>
+                </label>
+
+                <label for="filtro__saldo">Saldo:
+                    <select name="saldo_options" id="filtro__saldo_options">
+                        <option value="Corriente">Montos superiores:</option>
+                        <option value="Ahorro">Montos iguales:</option>
+                        <option value="Vista">Montos inferiores:</option>
+                    </select>
+                    <input type="text" name="saldo" id="filtro__saldo">
+                </label>
+
+                <button type="submit">Buscar</button>
+            </form>
         </nav>
         <table class="table">
-            <tr >
+            <tr>
                 <th>Nombre</th>
                 <th>RUN</th>
                 <th>Tipo de Cuenta</th>
@@ -85,7 +149,7 @@
                 <th>Corriente</th>
                 <th>$10000</th>
             </tr>
-            
+
             <tr>
                 <th>Juan Perez</th>
                 <th>11.111.111-8</th>
