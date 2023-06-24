@@ -4,10 +4,11 @@
 }
 
 @import url("./login.css");
+/* @import url("./scroll.css"); */
 
 * {
     box-sizing: border-box;
-    outline: 1px red solid;
+    outline: 0px red solid;
 }
 
 body {
@@ -42,7 +43,6 @@ label {
 input {
     border: 1px solid #f1cb00;
     border-radius: 3px;
-    box-shadow: 0px 1px 3px 0px rgba(40, 40, 40, 0.25);
     padding: 9px 12px;
     width: 100%;
     margin-top: 4px;
@@ -146,7 +146,7 @@ button:hover {
 
 .main {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     width: 100%;
     gap: 12px;
     padding: 12px;
@@ -159,6 +159,10 @@ button:hover {
     padding: 20px;
     border-radius: 9px;
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.nav input {
+    box-shadow: 0px 1px 3px 0px rgba(40, 40, 40, 0.25);
 }
 
 .table {
@@ -206,6 +210,16 @@ button:hover {
     border-radius: 3px;
     margin-top: 12px;
     padding: 9px;
+}
+.footer__text{
+    font-size: 11pt;
+    text-align: center;
+    position: relative;
+    bottom: -100px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 24px;
 }
 
 #remove_filters__btn {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Protegido from "./components/Protegido";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import Footer from "./components/Footer";
 
 export default function IndexPage() {
     const [datos, setDatos] = useState(null);
@@ -19,6 +20,7 @@ export default function IndexPage() {
         <Protegido>
             <Header />
             <Main data={datos?.data} changeUrlFetch={setUrlFetch} />
+            <Footer />
         </Protegido>
     );
 }

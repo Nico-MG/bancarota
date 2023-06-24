@@ -23,8 +23,8 @@ npm install
 En el archivo .env (crearlo si no existe) agregar o modificar los datos del servidor PostgreSQL:
 
 ```js
-PG_NAME = "usuario";
-PG_KEY = "contraseña";
+PG_NAME="usuario";
+PG_KEY="contraseña";
 ```
 
 El archivo .env necesita un par de cosas adicionales, revisar trello para ver el contenido completo

@@ -49,10 +49,10 @@ export default function Select({
 
     const setMenuDirectionShow = () => {
         if (directionShow === "top") {
-            return { display: visibility, width, bottom: "45px" };
+            return { display: visibility, width, bottom: "48px" };
         }
 
-        return { display: visibility, width, top: "45px" };
+        return { display: visibility, width, top: "48px" };
     };
 
     const handleKeyPress = (e) => {
