@@ -7,7 +7,7 @@
 
 * {
     box-sizing: border-box;
-    outline: 0px red solid;
+    outline: 1px red solid;
 }
 
 body {
