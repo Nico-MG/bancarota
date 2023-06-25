@@ -8,15 +8,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+
+
+            </script>
     <header class="header">
-        <img src="#" alt="logo" class="header__logo">
-        <h1 class="header__titulo">BANCAROTA</h1>
+        <img src="imagenes/Logo.png" alt="logo" class="header__logo"  width="160" height="150">
+        <img src="imagenes/BancaRota_logo.png" alt="logo" class="header__logoName"  width="290" height="35">
+
+        <!--<h1 class="header__titulo">BANCAROTA</h1>-->
+        
+        <!--
         <div class="header__datos">
             <h3 class="header__nombre">Nombre Apellido</h3>
             <h4 class="header__rol">Gerente</h4>
-        </div>
+        </div> -->
+
+
         <a href="./login.html" class="header__cerrar">Cerrar Sesión</a>
     </header>
+    
+    
     <div id="modal">
         <div class="modal__content">
         
@@ -46,6 +58,7 @@
                 <p class="modal__texto--edad"><b>Edad:</b> 39</p>
 
             </main>
+            
             <button class="modal__close" onclick="document.getElementById('modal').style.display = 'none'">Cerrar x</button>
         </div>
     </div>
@@ -54,19 +67,35 @@
         <nav class="nav">
             aqui colocar filtros
         </nav>
+
         <table class="table">
-            <tr >
+
+            <thead id="first_element">
                 <th>Nombre</th>
                 <th>RUN</th>
                 <th>Tipo de Cuenta</th>
                 <th>Saldo</th>
-            </tr>
+            </thead>    
+
+            <tbody id="tbody__table">
+            
+            <!--<tr id="first_element">
+                <th>Nombre</th>
+                <th>RUN</th>
+                <th>Tipo de Cuenta</th>
+                <th>Saldo</th>
+            </tr>-->
+
             <tr onclick="document.getElementById('modal').style.display = 'flex'">
+            
                 <th>Juan Perez</th>
                 <th>11.111.111-8</th>
                 <th>Corriente</th>
                 <th>$10000</th>
             </tr>
+
+
+
             <tr>
                 <th>Juan Perez</th>
                 <th>11.111.111-8</th>
@@ -116,6 +145,7 @@
                 <th>Corriente</th>
                 <th>$10000</th>
             </tr>
+            </tbody>
         </table>
     </main>
 </body>
