@@ -1,11 +1,11 @@
 # Ejemplo 1
-@api = http://localhost:3000/api/
+@api = http://localhost:3000/api/?edad=12
 
 ### Get all data
 GET {{api}}
 
 # Ejemplo 2
-@api2 = http://localhost:3000/api/?tipo=Corriente
+@api2 = http://localhost:3000/api/?fecha_nacimiento=1990-01-01
 
 ### Get data by query
 GET {{api2}}

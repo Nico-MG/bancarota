@@ -12,7 +12,6 @@ export default function Protegido({ children }) {
         }
     }, [status]);
 
-    // Vista mistras carga la pagina (se puede hacer una animacion de carga)
     if (status === "loading") {
         return <></>;
     }

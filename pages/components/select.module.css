@@ -1,0 +1,62 @@
+.select {
+    user-select: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.selected_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #f1cb00;
+    box-shadow: 0px 1px 3px 0px rgba(40, 40, 40, 0.25);
+    padding: 6px 12px;
+    border-radius: 3px;
+    user-select: none;
+    height: 45px;
+}
+
+.selected_item:focus {
+    outline: 2px solid #f1cd0092;
+}
+
+.selected_item::after {
+    content: "▾";
+    display: flex;
+    align-items: center;
+}
+
+.select_options {
+    transition: 1000s all ease;
+    position: absolute;
+    animation: show_hide_options 0.3s ease-out;
+    z-index: 10;
+}
+.select_options ul {
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    list-style: none;
+    padding: 3px 0;
+    margin: 0;
+}
+
+.select_options li {
+    padding: 12px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.select_option_hover {
+    background-color: rgba(220, 198, 0, 0.109);
+}
+
+@keyframes show_hide_options {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}

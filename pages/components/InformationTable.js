@@ -5,7 +5,7 @@ export default function InformationTable({ data }) {
                 <tr>
                     <th>nombre</th>
                     <th>run</th>
-                    <th>numero de cuenta</th>
+                    <th>Tipo de cuenta</th>
                     <th>saldo</th>
                 </tr>
             </thead>
@@ -17,7 +17,7 @@ export default function InformationTable({ data }) {
                                 {client.nombre} {client.apellido}
                             </td>
                             <td>{client.run}</td>
-                            <td>{client.numero}</td>
+                            <td>{client.tipo}</td>
                             <td>${client.saldo}</td>
                         </tr>
                     );

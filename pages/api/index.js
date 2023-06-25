@@ -20,7 +20,9 @@ export default async function index(req, res) {
 
 export default async function index(req, res) {
     const http_query = req.query;
-    http_query.pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 10;
+    http_query.pageSize = req.query.pageSize
+        ? parseInt(req.query.pageSize)
+        : 10;
     http_query.page = req.query.page ? parseInt(req.query.page) : 1;
 
     const query_string = query_db(http_query);
@@ -80,8 +82,12 @@ function add_query_filters(http_query) {
     const query_elements = [
         id ? `id=${id}` : "",
         run ? `run='${run}'` : "",
-        nombre ? `nombre='${nombre}'` : "",
-        apellido ? `apellido='${apellido}'` : "",
+        nombre
+            ? `TRANSLATE(nombre, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU') ILIKE '%${nombre}%'`
+            : "",
+        apellido
+            ? `TRANSLATE(apellido, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU') ILIKE '%${apellido}%'`
+            : "",
         fecha_nacimiento ? `fecha_nacimiento='${fecha_nacimiento}'` : "",
         numero ? `numero='${numero}'` : "",
         saldo ? `saldo=${saldo}` : "",
