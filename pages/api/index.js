@@ -76,7 +76,7 @@ function query_db(http_query) {
 }
 
 function add_query_filters(http_query) {
-    const { id, run, nombre, apellido, fecha_nacimiento, numero, saldo, tipo } =
+    const { id, run, nombre, apellido, fecha_nacimiento, edad, numero, saldo, tipo } =
         http_query;
 
     const query_elements = [
@@ -89,6 +89,7 @@ function add_query_filters(http_query) {
             ? `TRANSLATE(apellido, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU') ILIKE '%${apellido}%'`
             : "",
         fecha_nacimiento ? `fecha_nacimiento='${fecha_nacimiento}'` : "",
+        edad ? `edad=${edad}` : "",
         numero ? `numero='${numero}'` : "",
         saldo ? `saldo=${saldo}` : "",
         tipo ? `tipo='${tipo}'` : "",

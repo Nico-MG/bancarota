@@ -66,7 +66,7 @@ export default function Nav({ changeUrlFetch }) {
         if (numero !== "") query.push("numero=" + numeroTipo + numero);
 
         // Falta edad, rango de años de nacimiento
-        if (edad !== 0) query.push("fecha_nacimiento=" + edad);
+        if (edad !== 0) query.push("edad=" + edad);
 
         if (tipoCuenta !== "" && tipoCuenta !== "Todas") query.push("tipo=" + tipoCuenta);
 
@@ -83,6 +83,8 @@ export default function Nav({ changeUrlFetch }) {
 
         changeUrlFetch(url);
         setFilterActive(true);
+
+        // Hacer que cuando se cambie a "Todas" en el tipo de cuenta si no hay nada mas filtrando funcione como el quitar filtro.
     };
 
     const resetStates = () => {

@@ -1,5 +1,5 @@
 # Ejemplo 1
-@api = http://localhost:3000/api/?edad=12
+@api = http://localhost:3000/api/
 
 ### Get all data
 GET {{api}}

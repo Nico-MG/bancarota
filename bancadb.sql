@@ -50,7 +50,7 @@ where
     c.id = t.id_cliente;
 
 /* 
-VISTA CON TODOS LOS DATOS
+ VISTA CON TODOS LOS DATOS
  */
 create view clients_data AS
 select
@@ -59,6 +59,11 @@ select
     c.nombre,
     c.apellido,
     to_char (c.fecha_nacimiento, 'YYYY-MM-DD') as fecha_nacimiento,
+    extract(
+        year
+        from
+            AGE(CURRENT_DATE, c.fecha_nacimiento)
+    ) as edad,
     t.numero,
     t.saldo,
     t.tipo
@@ -127,5 +132,12 @@ VALUES
     (19, '222-432-000-007', 10000, 'Corriente'),
     (20, '222-432-000-008', 85000, 'Corriente');
 
-INSERT INTO gerente (correo, nombre, apellido, password) 
-VALUES ('gerencia@bancarota.cl', 'Cesar', 'Díaz', '$2b$10$VGmsnepPXARjBlXwUESBre5LNdDRMbKZ.AQOahFPBWbdTx2.Q8BMO');
+INSERT INTO
+    gerente (correo, nombre, apellido, password)
+VALUES
+    (
+        'gerencia@bancarota.cl',
+        'Cesar',
+        'Díaz',
+        '$2b$10$VGmsnepPXARjBlXwUESBre5LNdDRMbKZ.AQOahFPBWbdTx2.Q8BMO'
+    );
