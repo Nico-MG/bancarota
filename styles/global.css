@@ -4,6 +4,7 @@
 }
 
 @import url("./login.css");
+@import url("./Notification.css");
 
 * {
     box-sizing: border-box;
