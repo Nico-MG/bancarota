@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Protegido from "./components/Protegido";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import Head from "next/head";
 
 export default function IndexPage() {
     const [datos, setDatos] = useState(null);
@@ -17,6 +18,9 @@ export default function IndexPage() {
 
     return (
         <Protegido>
+            <Head>
+                <title>BancaRota</title>
+            </Head>
             <Header />
             <Main data={datos?.data} changeUrlFetch={setUrlFetch} />
         </Protegido>

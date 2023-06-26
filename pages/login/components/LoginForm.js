@@ -4,8 +4,8 @@ export default function LoginForm({ password, setPassword, handleSubmit }) {
     return (
         <form className="login" onSubmit={handleSubmit}>
             <Image
-                width={110}
-                height={110}
+                width={100}
+                height={100}
                 alt="Logo BancaRota"
                 src="/logo.svg"
                 draggable="false"

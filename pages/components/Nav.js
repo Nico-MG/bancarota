@@ -49,10 +49,6 @@ export default function Nav({ changeUrlFetch }) {
     const [filterActive, setFilterActive] = useState(false);
     const [infoFilter, setInfoFilter] = useState("");
 
-    useEffect(() => {
-        console.log(numeroTipo);
-    }, [numeroTipo]);
-
     const handleFilters = (event) => {
         event.preventDefault();
 
@@ -251,7 +247,7 @@ export default function Nav({ changeUrlFetch }) {
                     Buscar
                 </button>
                 {filterActive ? (
-                <button id="remove_filters__btn" onClick={removeFilters}>
+                <button className="remove_filters__btn" onClick={removeFilters}>
                     Quitar filtros ×
                 </button>
             ) : (
