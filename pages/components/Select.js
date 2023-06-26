@@ -48,11 +48,13 @@ export default function Select({
     };
 
     const setMenuDirectionShow = () => {
+        const height = (selectRef.current?.offsetHeight + 3) + "px";
+
         if (directionShow === "top") {
-            return { display: visibility, width, bottom: "48px" };
+            return { display: visibility, width, bottom: height };
         }
 
-        return { display: visibility, width, top: "48px" };
+        return { display: visibility, width, top: height };
     };
 
     const handleKeyPress = (e) => {

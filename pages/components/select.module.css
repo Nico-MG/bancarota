@@ -2,6 +2,7 @@
     user-select: none;
     position: relative;
     cursor: pointer;
+    font-size: .9rem;
 }
 
 .selected_item {
@@ -10,11 +11,10 @@
     justify-content: space-between;
     background-color: white;
     border: 1px solid #f1cb00;
-    box-shadow: 0px 1px 3px 0px rgba(40, 40, 40, 0.25);
-    padding: 6px 12px;
+    box-shadow: 0px 1px 3px 0px rgba(40, 40, 40, 0.15);
+    padding: .6rem .7rem;
     border-radius: 3px;
     user-select: none;
-    height: 45px;
 }
 
 .selected_item:focus {
@@ -25,6 +25,7 @@
     content: "▾";
     display: flex;
     align-items: center;
+    font-size: .75rem;
 }
 
 .select_options {
@@ -36,14 +37,14 @@
 .select_options ul {
     background-color: white;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
+    border-radius: 3px;
     list-style: none;
-    padding: 3px 0;
+    padding: .2rem 0;
     margin: 0;
 }
 
 .select_options li {
-    padding: 12px;
+    padding: .6rem .7rem;
     margin: 0;
     cursor: pointer;
 }

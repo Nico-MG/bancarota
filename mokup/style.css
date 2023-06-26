@@ -70,7 +70,7 @@ select {
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    background: linear-gradient(to right,#f1cb00,white  );
+    background: linear-gradient(124deg, #E4CA44 0%, #FEEE9E 100%);
     border-radius: 20px;
 }
 
