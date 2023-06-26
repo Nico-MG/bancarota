@@ -49,10 +49,6 @@ export default function Nav({ changeUrlFetch }) {
     const [filterActive, setFilterActive] = useState(false);
     const [infoFilter, setInfoFilter] = useState("");
 
-    useEffect(() => {
-        console.log(numeroTipo);
-    }, [numeroTipo]);
-
     const handleFilters = (event) => {
         event.preventDefault();
 
@@ -66,16 +62,16 @@ export default function Nav({ changeUrlFetch }) {
         if (numero !== "") query.push("numero=" + numeroTipo + numero);
 
         // Falta edad, rango de años de nacimiento
-        if (edad !== 0) query.push("fecha_nacimiento=" + edad);
+        if (edad !== 0) query.push("edad=" + edad);
 
-        if (tipoCuenta !== "Todas") query.push("tipo=" + tipoCuenta);
+        if (tipoCuenta !== "" && tipoCuenta !== "Todas") query.push("tipo=" + tipoCuenta);
 
         // Falta alguna forma de definir la busqueda en base a 'saldoCriterio'
         if (saldo !== 0) query.push("saldo=" + saldo);
 
-        if (query.length === 0) {
+        if (query.length === 0 && (!filterActive || tipoCuenta !== "Todas")) {
             console.log("No se ha ingresado informacion para filtrar");
-            setInfoFilter("Ingrese informacion para buscar");
+            setInfoFilter("Ingrese información para buscar");
             return 0;
         }
 
@@ -83,6 +79,8 @@ export default function Nav({ changeUrlFetch }) {
 
         changeUrlFetch(url);
         setFilterActive(true);
+
+        // Hacer que cuando se cambie a "Todas" en el tipo de cuenta si no hay nada mas filtrando funcione como el quitar filtro.
     };
 
     const resetStates = () => {
@@ -122,13 +120,7 @@ export default function Nav({ changeUrlFetch }) {
     return (
         <nav className="nav">
             <h4>Busqueda</h4>
-            {filterActive ? (
-                <button id="remove_filters__btn" onClick={removeFilters}>
-                    Quitar filtros ×
-                </button>
-            ) : (
-                ""
-            )}
+            
             <form action="" className="form_filtros" onSubmit={handleFilters}>
                 <label htmlFor="filtro__nombre">
                     Nombre:
@@ -138,7 +130,7 @@ export default function Nav({ changeUrlFetch }) {
                         id="filtro__nombre"
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)}
-                        placeholder="Nombre"
+                        placeholder="nombre"
                     />
                 </label>
 
@@ -150,7 +142,7 @@ export default function Nav({ changeUrlFetch }) {
                         id="filtro__apellido"
                         value={apellido}
                         onChange={(e) => setApellido(e.target.value)}
-                        placeholder="Apellido"
+                        placeholder="apellido"
                     />
                 </label>
 
@@ -162,7 +154,7 @@ export default function Nav({ changeUrlFetch }) {
                         id="filtro__run"
                         value={run}
                         onChange={(e) => setRun(e.target.value)}
-                        placeholder="RUN"
+                        placeholder="run"
                     />
                 </label>
 
@@ -201,7 +193,7 @@ export default function Nav({ changeUrlFetch }) {
                         id="filtro__edad"
                         value={edad > 0 ? edad : ""}
                         onChange={(e) => setEdad(parseInt(e.target.value))}
-                        placeholder="Edad"
+                        placeholder="edad"
                     />
                 </label>
 
@@ -243,7 +235,7 @@ export default function Nav({ changeUrlFetch }) {
                         id="filtro__saldo"
                         value={saldo > 0 ? saldo : ""}
                         onChange={(e) => setSaldo(parseInt(e.target.value))}
-                        placeholder="Monto"
+                        placeholder="monto"
                     />
                 </div>
                 {infoFilter === "" ? (
@@ -254,6 +246,13 @@ export default function Nav({ changeUrlFetch }) {
                 <button type="submit" className="filtros__button">
                     Buscar
                 </button>
+                {filterActive ? (
+                <button className="remove_filters__btn" onClick={removeFilters}>
+                    Quitar filtros ×
+                </button>
+            ) : (
+                ""
+            )}
             </form>
         </nav>
     );

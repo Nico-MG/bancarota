@@ -2,7 +2,9 @@ import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import LoginForm from "./components/LoginForm";
+
 import { Notification, ShowError } from "../components/Notification";
+import Head from "next/head";
 
 export default function Login() {
     const { status } = useSession();
@@ -32,6 +34,9 @@ export default function Login() {
     } else {
         return (
             <div className="login_container">
+                <Head>
+                    <title>Login - BancaRota</title>
+                </Head>
                 <LoginForm
                     password={password}
                     setPassword={setPassword}
