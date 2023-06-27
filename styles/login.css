@@ -55,6 +55,7 @@
 
 .login__pwd::placeholder{
     color:transparent;
+    user-select: none;
 }
 
 .login__label {
@@ -67,6 +68,7 @@
     font-size: 1rem;
     transition: 0.3s;
     z-index: 0;
+    user-select: none;
 }
 
 .login__pwd:focus + .login__label {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Select from "./Select";
 
 const options_numero_cuenta = [
@@ -8,17 +8,17 @@ const options_numero_cuenta = [
 ];
 
 const options_anyo_nacimiento = [
-    { id: 0, label: "1920-1930" },
-    { id: 1, label: "1930-1940" },
-    { id: 2, label: "1940-1950" },
-    { id: 3, label: "1950-1960" },
-    { id: 4, label: "1960-1970" },
-    { id: 5, label: "1970-1980" },
-    { id: 6, label: "1980-1990" },
-    { id: 7, label: "1990-2000" },
-    { id: 8, label: "2000-2010" },
-    { id: 9, label: "2010-2020" },
-    { id: 10, label: "2020-2030" },
+    { id: 0, label: "1921-1930", value: "'1921-01-01' AND '1930-12-31'" },
+    { id: 1, label: "1931-1940", value: "'1931-01-01' AND '1940-12-31'" },
+    { id: 2, label: "1941-1950", value: "'1941-01-01' AND '1950-12-31'" },
+    { id: 3, label: "1951-1960", value: "'1951-01-01' AND '1960-12-31'" },
+    { id: 4, label: "1961-1970", value: "'1961-01-01' AND '1970-12-31'" },
+    { id: 5, label: "1971-1980", value: "'1971-01-01' AND '1980-12-31'" },
+    { id: 6, label: "1981-1990", value: "'1981-01-01' AND '1990-12-31'" },
+    { id: 7, label: "1991-2000", value: "'1991-01-01' AND '2000-12-31'" },
+    { id: 8, label: "2001-2010", value: "'2001-01-01' AND '2010-12-31'" },
+    { id: 9, label: "2011-2020", value: "'2011-01-01' AND '2020-12-31'" },
+    { id: 10, label: "2021-2030", value: "'2021-01-01' AND '2030-12-31'" },
 ];
 
 const options_tipo_cuenta = [
@@ -60,14 +60,12 @@ export default function Nav({ changeUrlFetch }) {
         if (apellido !== "") query.push("apellido=" + apellido);
         if (run !== "") query.push("run=" + run);
         if (numero !== "") query.push("numero=" + numeroTipo + numero);
-
-        // Falta edad, rango de años de nacimiento
         if (edad !== 0) query.push("edad=" + edad);
 
-        if (tipoCuenta !== "" && tipoCuenta !== "Todas") query.push("tipo=" + tipoCuenta);
+        if (anyoNacimiento !== "") query.push("fecha_nacimiento=" + anyoNacimiento);
 
-        // Falta alguna forma de definir la busqueda en base a 'saldoCriterio'
-        if (saldo !== 0) query.push("saldo=" + saldo);
+        if (tipoCuenta !== "" && tipoCuenta !== "Todas") query.push("tipo=" + tipoCuenta);
+        if (saldo !== 0) query.push("saldo=" + saldo + "&criterio=" + saldoCriterio);
 
         if (query.length === 0 && (!filterActive || tipoCuenta !== "Todas")) {
             console.log("No se ha ingresado informacion para filtrar");
