@@ -11,6 +11,10 @@
     outline: 0px red solid;
 }
 
+html{
+    font-size: 18px;
+}
+
 body {
     font-family: "Nunito", system-ui;
     background-color: #f8fafc;
@@ -155,7 +159,7 @@ button:hover {
 .nav {
     background-color: white;
     min-width: 14.5rem;
-    width: 21rem;
+    width: 22rem;
     height: 100%;
     padding: 1.25rem;
     border-radius: 9px;
