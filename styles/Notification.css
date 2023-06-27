@@ -1,9 +1,9 @@
 .notification__container {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    bottom: 1.5rem;
+    bottom: 1rem;
 }
 .notification__box {
     background-color: rgb(255, 236, 240);

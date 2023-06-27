@@ -3,6 +3,7 @@ import Protegido from "./components/Protegido";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Head from "next/head";
+import { Notification } from "./components/Notification";
 
 export default function IndexPage() {
     const [datos, setDatos] = useState(null);
@@ -23,6 +24,7 @@ export default function IndexPage() {
             </Head>
             <Header />
             <Main data={datos?.data} changeUrlFetch={setUrlFetch} />
+            <Notification />
         </Protegido>
     );
 }
