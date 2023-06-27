@@ -15,7 +15,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border-radius: .6rem;
+    border-radius: 0.6rem;
     /* border-top-left-radius: 50px;
     border-bottom-right-radius: 50px; */
     padding: 2rem 0;
@@ -35,8 +35,14 @@
 .login__form {
     display: flex;
     flex-direction: column;
-    gap: .6rem;
+    gap: 0.6rem;
     width: 80%;
+}
+
+.input__container {
+    position: relative;
+    height: 2.7rem;
+    margin-bottom: 0.3rem;
 }
 
 .login__pwd {
@@ -53,39 +59,30 @@
     outline: 3px solid #ffd90090;
 }
 
-.login__pwd::placeholder{
-    color:transparent;
+.login__pwd::placeholder {
+    color: transparent;
     user-select: none;
 }
 
 .login__label {
     position: absolute;
-    top: .9rem;
-    left: .65rem;
-    padding: 0 .18rem;
+    top: 0.9rem;
+    left: 0.65rem;
+    padding: 0 0.18rem;
     background-color: none;
     color: #a8a8a8;
     font-size: 1rem;
-    transition: 0.3s;
+    transition: 0.3s cubic-bezier(0.86, 0, 0.07, 1);
     z-index: 0;
     user-select: none;
 }
 
+.login__pwd:not(:placeholder-shown) + .login__label,
 .login__pwd:focus + .login__label {
     top: -0.42rem;
-    left: .65rem;
+    left: 0.65rem;
     z-index: 10;
-    font-size: .9rem;
-    font-weight: 700;
-    background-color: white;
-    color: #5f5f5f;
-}
-
-.login__pwd:not(:placeholder-shown)+ .login__label {
-    top: -0.42rem;
-    left: .65rem;
-    z-index: 10;
-    font-size: .9rem;
+    font-size: 0.9rem;
     font-weight: 700;
     background-color: white;
     color: #5f5f5f;
@@ -105,10 +102,4 @@
 .login__button:hover {
     background-color: #ffd900;
     border: 3px solid #ffd900;
-}
-
-.input__container {
-    position: relative;
-    height: 2.7rem;
-    margin-bottom: .3rem;
 }
