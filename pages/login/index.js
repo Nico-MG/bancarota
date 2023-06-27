@@ -2,6 +2,8 @@ import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import LoginForm from "./components/LoginForm";
+
+import { Notification, ShowError } from "../components/Notification";
 import Head from "next/head";
 
 export default function Login() {
@@ -19,6 +21,8 @@ export default function Login() {
         if (result.ok) {
             router.push("/");
         }
+
+        ShowError(result.error);
     }
 
     if (status === "loading") {
@@ -38,6 +42,7 @@ export default function Login() {
                     setPassword={setPassword}
                     handleSubmit={handleSubmit}
                 />
+                <Notification />
             </div>
         );
     }

@@ -10,6 +10,7 @@ export default function LoginForm({ password, setPassword, handleSubmit }) {
                 src="/logo.svg"
                 draggable="false"
                 className="login__logo"
+                priority={true}
             />
             <h2 className="login__nombre">Ingreso Gerente</h2>
             <div className="login__form">
