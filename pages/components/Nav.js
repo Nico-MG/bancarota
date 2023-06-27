@@ -62,13 +62,11 @@ export default function Nav({ changeUrlFetch }) {
         if (run !== "") query.push("run=" + run);
         if (numero !== "") query.push("numero=" + numeroTipo + numero);
         if (edad !== 0) query.push("edad=" + edad);
-
         if (anyoNacimiento !== "" && anyoNacimiento !== "Todos") query.push("fecha_nacimiento=" + anyoNacimiento);
-
         if (tipoCuenta !== "" && tipoCuenta !== "Todas") query.push("tipo=" + tipoCuenta);
         if (saldo !== 0) query.push("saldo=" + saldo + "&criterio=" + saldoCriterio);
 
-        if (query.length === 0 && !filterActive) {
+        if (query.length === 0) {
             ShowError("Ingrese información para buscar");
             return 0;
         }
@@ -76,11 +74,11 @@ export default function Nav({ changeUrlFetch }) {
         url += query.join("&");
 
         console.log(url)
+        console.log(edad)
+
 
         changeUrlFetch(url);
         setFilterActive(true);
-
-        // Hacer que cuando se cambie a "Todas" en el tipo de cuenta si no hay nada mas filtrando funcione como el quitar filtro.
     };
 
     const resetStates = () => {
@@ -192,7 +190,7 @@ export default function Nav({ changeUrlFetch }) {
                             name="edad"
                             id="filtro__edad"
                             value={edad > 0 ? edad : ""}
-                            onChange={(e) => setEdad(parseInt(e.target.value))}
+                            onChange={(e) => setEdad(e.target.value === "" ? 0:parseInt(e.target.value))}
                             placeholder="edad"
                         />
                     </label>
@@ -234,7 +232,7 @@ export default function Nav({ changeUrlFetch }) {
                             name="saldo"
                             id="filtro__saldo"
                             value={saldo > 0 ? saldo : ""}
-                            onChange={(e) => setSaldo(parseInt(e.target.value))}
+                            onChange={(e) => setSaldo(e.target.value === "" ? 0:parseInt(e.target.value))}
                             placeholder="monto"
                         />
                     </div>

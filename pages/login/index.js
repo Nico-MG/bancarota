@@ -20,9 +20,10 @@ export default function Login() {
 
         if (result.ok) {
             router.push("/");
+        } else {
+            ShowError(result.error);
         }
 
-        ShowError(result.error);
     }
 
     if (status === "loading") {
