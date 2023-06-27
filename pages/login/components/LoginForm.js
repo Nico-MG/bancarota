@@ -14,18 +14,21 @@ export default function LoginForm({ password, setPassword, handleSubmit }) {
             />
             <h2 className="login__nombre">Ingreso Gerente</h2>
             <div className="login__form">
-                <label className="login__label" htmlFor="pwd">
-                    Contraseña:
-                </label>
-                <input
-                    className="login__pwd"
-                    type="password"
-                    id="pwd"
-                    name="pwd"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    autoComplete="off"
-                />
+                <div className="input__container">
+                    <input
+                        className="login__pwd"
+                        type="password"
+                        id="pwd"
+                        name="pwd"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        autoComplete="off"
+                        placeholder="Contraseña"
+                    />
+                    <label className="login__label" htmlFor="pwd">
+                        Contraseña
+                    </label>
+                </div>
                 <button className="login__button" type="submit">
                     INGRESAR
                 </button>

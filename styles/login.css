@@ -40,12 +40,53 @@
 }
 
 .login__pwd {
+    position: absolute;
+    background: none;
     border: 3px solid #f1cb00;
     border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }
 
 .login__pwd:focus {
     outline: 3px solid #ffd90090;
+}
+
+.login__pwd::placeholder{
+    color:transparent;
+}
+
+.login__label {
+    position: absolute;
+    top: .8rem;
+    left: .65rem;
+    padding: 0 .18rem;
+    background-color: none;
+    color: #a8a8a8;
+    font-size: 1rem;
+    transition: 0.3s;
+    z-index: 0;
+}
+
+.login__pwd:focus + .login__label {
+    top: -0.42rem;
+    left: .65rem;
+    z-index: 10;
+    font-size: .9rem;
+    font-weight: 700;
+    background-color: white;
+    color: #5f5f5f;
+}
+
+.login__pwd:not(:placeholder-shown)+ .login__label {
+    top: -0.42rem;
+    left: .65rem;
+    z-index: 10;
+    font-size: .9rem;
+    font-weight: 700;
+    background-color: white;
+    color: #5f5f5f;
 }
 
 .login__button {
@@ -62,4 +103,10 @@
 .login__button:hover {
     background-color: #ffd900;
     border: 3px solid #ffd900;
+}
+
+.input__container {
+    position: relative;
+    height: 2.5rem;
+    margin-bottom: .3rem;
 }
