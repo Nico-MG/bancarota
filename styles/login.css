@@ -59,7 +59,7 @@
 
 .login__label {
     position: absolute;
-    top: .8rem;
+    top: .9rem;
     left: .65rem;
     padding: 0 .18rem;
     background-color: none;
@@ -107,6 +107,6 @@
 
 .input__container {
     position: relative;
-    height: 2.5rem;
+    height: 2.7rem;
     margin-bottom: .3rem;
 }
