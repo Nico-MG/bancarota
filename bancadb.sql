@@ -62,11 +62,7 @@ select
     c.nombre,
     c.apellido,
     to_char (c.fecha_nacimiento, 'YYYY-MM-DD') as fecha_nacimiento,
-    extract(
-        year
-        from
-            AGE(CURRENT_DATE, c.fecha_nacimiento)
-    ) as edad,
+    date_part('year', CURRENT_DATE) - date_part('year', c.fecha_nacimiento) as edad,
     t.numero,
     t.saldo,
     t.tipo
