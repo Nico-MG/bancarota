@@ -83,10 +83,10 @@ function add_query_filters(http_query) {
         id ? `id=${id}` : "",
         run ? `run='${run}'` : "",
         nombre
-            ? `TRANSLATE(nombre, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU') ILIKE '%${nombre}%'`
+            ? `LOWER(nombre) = '${nombre}'`
             : "",
         apellido
-            ? `TRANSLATE(apellido, 'áéíóúÁÉÍÓÚ', 'aeiouAEIOU') ILIKE '%${apellido}%'`
+            ? `LOWER(apellido) = '${apellido}'`
             : "",
         fecha_nacimiento ? `fecha_nacimiento BETWEEN ${fecha_nacimiento}` : "",
         edad ? `edad=${edad}` : "",

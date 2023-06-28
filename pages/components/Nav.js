@@ -57,8 +57,8 @@ export default function Nav({ changeUrlFetch }) {
 
         let query = [];
 
-        if (nombre !== "") query.push("nombre=" + nombre);
-        if (apellido !== "") query.push("apellido=" + apellido);
+        if (nombre !== "") query.push("nombre=" + nombre.toLowerCase());
+        if (apellido !== "") query.push("apellido=" + apellido.toLowerCase());
         if (run !== "") query.push("run=" + run);
         if (numero !== "") query.push("numero=" + numeroTipo + numero);
         if (edad !== 0) query.push("edad=" + edad);
