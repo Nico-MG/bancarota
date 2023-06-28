@@ -3,10 +3,10 @@
     src: url("fonts/Nunito-VariableFont_wght.ttf");
 }
 
+
+@import url("./reset.css");
 @import url("./login.css");
 @import url("./Notification.css");
-
-/* @import url("./scroll.css"); */
 
 * {
     box-sizing: border-box;
@@ -36,6 +36,7 @@ h4 {
 label,
 input,
 select {
+    font-family: "Nunito", system-ui;
     display: block;
     font-size: 0.9rem;
     margin: 0;
@@ -50,7 +51,7 @@ label {
 input {
     border: 1px solid #f1cb00;
     border-radius: 3px;
-    padding: 0.6rem 0.7rem;
+    padding: 0.5rem 0.7rem;
     width: 100%;
     margin-top: 0.2rem;
 }
@@ -70,11 +71,12 @@ input[type="number"] {
 }
 
 button {
+    font-family: "Nunito", system-ui;
     background-color: #f1cb00;
     border: 3px solid #f1cb00;
-    padding: 0.6rem 0.7rem;
+    padding: 0.5rem 0.7rem;
     border-radius: 6px;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
     font-size: 0.9rem;
     user-select: none;
@@ -98,33 +100,39 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: sans-serif;
     gap: 1.25rem;
 }
 
+/* MODAL */
+
 #modal {
     position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+    display: flex;
+    z-index: 999;
+    top:0;
+    left:0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    display: none;
+    background-color: rgba(255, 255, 255, 0.10);
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(6px);
+
 }
 
 .modal__content {
+    position: relative;
     background-color: #fefefe;
-    width: 700px;
-    height: 700px;
+    width: 29rem;
+    height: 26rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    border-radius: 12px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+    padding-bottom: 2rem;
 }
 
 .modal__header {
@@ -132,32 +140,108 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 1.5rem;
+    background: linear-gradient(124deg, #E4CA44 0%, #FEEE9E 100%);
+    border-radius: 12px;
+}
+
+.modal__texto--saldo{
+    font-size: 1.8rem;
+    color: black;
+    font-weight: 300;
+    
+}
+
+.modal__saldo{
+    font-size: 2.7rem;
+    font-weight: 500;
+    display: flex;
+    align-items: baseline;
+}
+
+.modal__saldo div {
+    position: relative;
+    font-size: 1.3rem;
+    height: 100%;
+    bottom: .1rem;
+}
+
+.modal__header--dos,
+.modal__header--tres{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.modal__tipo,
+.modal__texto--numero,
+.modal__numero {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.modal__header--tres h4 {
+    margin: 0.2rem;
 }
 
 .modal__main {
     width: 100%;
-    padding-left: 30px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
 }
 
 .modal__close {
-    padding: 10px;
-    border-radius: 0;
+    padding: .3rem 1rem;
 }
+
+/* HEADER */
 
 .header {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    background-color: black;
+    color: white;
+    padding: 0 3rem;
+    height: 6.5rem;
+}
+
+.header__logo{
+    position: relative;
+    left:-2.5rem;
+    user-select: none;
+}
+
+.header__logoName{
+    user-select: none;
+}
+
+.header__cerrar{
+    padding: .23rem .6rem;
+}
+.header__datos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 70%;
+}
+
+.header__datos h4 {
+    margin-bottom: .3rem;
+    color: white;
 }
 
 .main {
     display: flex;
     align-items: flex-start;
     width: 100%;
-    gap: 0.7rem;
-    padding: 0.7rem 3rem;
+    gap: 1rem;
+    padding: 1.5rem 3rem;
 }
 
 .nav {
@@ -172,15 +256,6 @@ button:hover {
 
 .nav input {
     box-shadow: 0px 1px 3px 0px rgba(40, 40, 40, 0.15);
-}
-
-.table {
-    width: 100%;
-    padding: 10px;
-}
-
-.table th {
-    height: 40px;
 }
 
 .form_filtros {
@@ -232,4 +307,91 @@ button:hover {
 .remove_filters__btn:hover {
     background-color: crimson;
     border: none;
+}
+
+/* TABLA */
+
+.table_container {
+    width: 100%;
+}
+
+.table {
+    border: none;
+    background-color: #EBEBEB;
+    width: 100%;
+    border-radius: 9px;
+    border-spacing: 1px;
+    border-collapse: separate;
+}
+
+.table th:first-child {
+  border-top-left-radius: 9px;
+}
+.table th:last-child {
+  border-top-right-radius: 9px;
+}
+
+.table tr:last-child td:first-child {
+    border-bottom-left-radius: 9px;
+}
+
+.table tr:last-child td:last-child {
+    border-bottom-right-radius: 9px;
+}
+
+.table td {
+    background-color: white;
+    padding: .9rem 1rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    padding-left: 1.5rem;
+}
+
+.table tr:hover td{
+    background-color: #faf7e0;
+    cursor: pointer;
+}
+
+.table th {
+    background-color: #F0F0F0;
+    padding: 1.3rem;
+    font-size: .9rem;
+}
+
+/* PAGER */
+
+.pager__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    gap: .1rem;
+}
+
+.pager__container button {
+    font-size: .9rem;
+    background-color: white;
+    border: 1px solid #EBEBEB;
+    padding: .6rem 1rem;
+    font-weight: 400;
+}
+
+.pager__container button:hover {
+    background-color: #faf7e0;
+    border: 1px solid #EBEBEB;
+    padding: .6rem 1rem;
+}
+
+.pager__active {
+    outline: 2px solid #ffd90090;
+    font-weight: 800;
+}
+
+.pager__container button:focus {
+    outline: none
 }

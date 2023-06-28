@@ -7,6 +7,7 @@ import { Notification } from "./components/Notification";
 
 export default function IndexPage() {
     const [datos, setDatos] = useState(null);
+    const [pagerData, setPagerData] = useState(null)
     const [urlFetch, setUrlFetch] = useState("http://localhost:3000/api/");
 
     useEffect(() => {
@@ -14,6 +15,13 @@ export default function IndexPage() {
             .then((response) => response.json())
             .then((data) => {
                 setDatos(data);
+                setPagerData({
+                    "previousPage": data.previousPage,
+                    "nextPage": data.nextPage,
+                    "filters": data.filters,
+                    "totalPages": data.totalPages,
+                    "page": data.page,
+                });
             });
     }, [urlFetch]);
 
@@ -23,7 +31,7 @@ export default function IndexPage() {
                 <title>BancaRota</title>
             </Head>
             <Header />
-            <Main data={datos?.data} changeUrlFetch={setUrlFetch} />
+            <Main data={datos?.data} changeUrlFetch={setUrlFetch} pager={pagerData} />
             <Notification />
         </Protegido>
     );

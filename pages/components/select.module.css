@@ -12,7 +12,7 @@
     background-color: white;
     border: 1px solid #f1cb00;
     box-shadow: 0px 1px 3px 0px rgba(40, 40, 40, 0.15);
-    padding: .6rem .7rem;
+    padding: .66rem .7rem;
     border-radius: 3px;
     user-select: none;
 }
@@ -50,7 +50,7 @@
 }
 
 .select_option_hover {
-    background-color: rgba(220, 198, 0, 0.109);
+    background-color: #faf7e0;
 }
 
 @keyframes show_hide_options {

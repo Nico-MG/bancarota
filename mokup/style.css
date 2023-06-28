@@ -123,9 +123,6 @@ select {
     border-radius: 10px;
 }
 
-
-
-
 .main {
 
     display: flex;
@@ -146,6 +143,7 @@ select {
     width: 100%;
     padding: 10px;
     border-bottom: #000000;
+    
 }
 
 #tbody__table{

@@ -73,10 +73,6 @@ export default function Nav({ changeUrlFetch }) {
 
         url += query.join("&");
 
-        console.log(url)
-        console.log(edad)
-
-
         changeUrlFetch(url);
         setFilterActive(true);
     };

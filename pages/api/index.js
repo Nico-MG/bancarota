@@ -42,14 +42,12 @@ export default async function index(req, res) {
 
     const previousPage =
         http_query.page > 1
-            ? `http://localhost:3000/api/?page=${http_query.page - 1}` +
-              query_filter_prev
+            ? http_query.page - 1
             : "";
     const nextPage =
         http_query.page === totalPages
             ? ""
-            : `http://localhost:3000/api/?page=${http_query.page + 1}` +
-              query_filter_prev;
+            : http_query.page + 1
 
     res.status(200).json({
         page: http_query.page,
