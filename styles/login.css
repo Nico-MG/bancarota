@@ -89,10 +89,8 @@
 }
 
 .login__button {
-    background-color: #f1cb00;
-    border: 3px solid #f1cb00;
     border-radius: 6px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .login__button:focus {
