@@ -1,6 +1,13 @@
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export default function LoginForm({ password, setPassword, handleSubmit }) {
+    const inputLogin = useRef();
+
+    useEffect(() => {
+        inputLogin.current.focus();
+    }, []);
+
     return (
         <form className="login" onSubmit={handleSubmit}>
             <Image
@@ -24,6 +31,7 @@ export default function LoginForm({ password, setPassword, handleSubmit }) {
                         onChange={(e) => setPassword(e.target.value)}
                         autoComplete="off"
                         placeholder="Contraseña"
+                        ref={inputLogin}
                     />
                     <label className="login__label" htmlFor="pwd">
                         Contraseña

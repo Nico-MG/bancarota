@@ -62,9 +62,12 @@ export default function Nav({ changeUrlFetch }) {
         if (run !== "") query.push("run=" + run);
         if (numero !== "") query.push("numero=" + numeroTipo + numero);
         if (edad !== 0) query.push("edad=" + edad);
-        if (anyoNacimiento !== "" && anyoNacimiento !== "Todos") query.push("fecha_nacimiento=" + anyoNacimiento);
-        if (tipoCuenta !== "" && tipoCuenta !== "Todas") query.push("tipo=" + tipoCuenta);
-        if (saldo !== 0) query.push("saldo=" + saldo + "&criterio=" + saldoCriterio);
+        if (anyoNacimiento !== "" && anyoNacimiento !== "Todos")
+            query.push("fecha_nacimiento=" + anyoNacimiento);
+        if (tipoCuenta !== "" && tipoCuenta !== "Todas")
+            query.push("tipo=" + tipoCuenta);
+        if (saldo !== 0)
+            query.push("saldo=" + saldo + "&criterio=" + saldoCriterio);
 
         if (query.length === 0) {
             ShowError("Ingrese información para buscar");
@@ -112,137 +115,152 @@ export default function Nav({ changeUrlFetch }) {
     };
 
     return (
-            <nav className="nav">
-                <h4>Busqueda</h4>
-                
-                <form action="" className="form_filtros" onSubmit={handleFilters}>
-                    <label htmlFor="filtro__nombre">
-                        Nombre:
+        <nav className="nav">
+            <h4>Busqueda</h4>
+
+            <form action="" className="form_filtros" onSubmit={handleFilters}>
+                <label htmlFor="filtro__nombre">
+                    Nombre:
+                    <input
+                        type="text"
+                        name="nombre"
+                        id="filtro__nombre"
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)}
+                        placeholder="nombre"
+                    />
+                </label>
+
+                <label htmlFor="filtro__apellido">
+                    Apellido:
+                    <input
+                        type="text"
+                        name="apellido"
+                        id="filtro__apellido"
+                        value={apellido}
+                        onChange={(e) => setApellido(e.target.value)}
+                        placeholder="apellido"
+                    />
+                </label>
+
+                <label htmlFor="filtro__run">
+                    RUN:
+                    <input
+                        type="text"
+                        name="run"
+                        id="filtro__run"
+                        value={run}
+                        onChange={(e) => setRun(e.target.value)}
+                        placeholder="run"
+                    />
+                </label>
+
+                <div className="form_group_select">
+                    <label htmlFor="filtro__numero_cuenta">
+                        Número de cuenta:
+                    </label>
+                    <div>
+                        <Select
+                            options={options_numero_cuenta}
+                            width={80}
+                            changeSelection={setNumeroTipo}
+                            value={numeroTipo}
+                        />
                         <input
                             type="text"
                             name="nombre"
-                            id="filtro__nombre"
-                            value={nombre}
-                            onChange={(e) => setNombre(e.target.value)}
-                            placeholder="nombre"
-                        />
-                    </label>
-
-                    <label htmlFor="filtro__apellido">
-                        Apellido:
-                        <input
-                            type="text"
-                            name="apellido"
-                            id="filtro__apellido"
-                            value={apellido}
-                            onChange={(e) => setApellido(e.target.value)}
-                            placeholder="apellido"
-                        />
-                    </label>
-
-                    <label htmlFor="filtro__run">
-                        RUN:
-                        <input
-                            type="text"
-                            name="run"
-                            id="filtro__run"
-                            value={run}
-                            onChange={(e) => setRun(e.target.value)}
-                            placeholder="run"
-                        />
-                    </label>
-
-                    <div className="form_group_select">
-                        <label htmlFor="filtro__numero_cuenta">
-                            Número de cuenta:
-                        </label>
-                        <div>
-                            <Select
-                                options={options_numero_cuenta}
-                                width={80}
-                                changeSelection={setNumeroTipo}
-                                value={numeroTipo}
-                            />
-                            <input
-                                type="text"
-                                name="nombre"
-                                id="filtro__numero_cuenta"
-                                value={numero}
-                                onChange={(e) =>
-                                    e.target.value.length <= 11
-                                        ? setNumero(e.target.value)
-                                        : setNumero(numero)
-                                }
-                                onKeyDown={setNumeroDecorado}
-                                placeholder="123-456-789"
-                            />
-                        </div>
-                    </div>
-
-                    <label htmlFor="filtro__edad">
-                        Edad:
-                        <input
-                            type="number"
-                            name="edad"
-                            id="filtro__edad"
-                            value={edad > 0 ? edad : ""}
-                            onChange={(e) => setEdad(e.target.value === "" ? 0:parseInt(e.target.value))}
-                            placeholder="edad"
-                        />
-                    </label>
-
-                    <div className="form_group_select">
-                        <label htmlFor="filtro__anyo_nacimiento">
-                            Año de nacimiento:
-                        </label>
-                        <Select
-                            options={options_anyo_nacimiento}
-                            width="100%"
-                            directionShow="top"
-                            changeSelection={setAnyoNacimiento}
-                            value={anyoNacimiento}
+                            id="filtro__numero_cuenta"
+                            value={numero}
+                            onChange={(e) =>
+                                e.target.value.length <= 11
+                                    ? setNumero(e.target.value)
+                                    : setNumero(numero)
+                            }
+                            onKeyDown={setNumeroDecorado}
+                            placeholder="123-456-789"
                         />
                     </div>
+                </div>
 
-                    <div className="form_group_select">
-                        <label htmlFor="filtro__tipo_cuenta">Tipo de cuenta:</label>
-                        <Select
-                            options={options_tipo_cuenta}
-                            width="100%"
-                            changeSelection={setTipoCuenta}
-                            value={tipoCuenta}
-                        />
-                    </div>
+                <label htmlFor="filtro__edad">
+                    Edad:
+                    <input
+                        type="number"
+                        name="edad"
+                        id="filtro__edad"
+                        value={edad > 0 ? edad : ""}
+                        onChange={(e) =>
+                            setEdad(
+                                e.target.value === ""
+                                    ? 0
+                                    : parseInt(e.target.value)
+                            )
+                        }
+                        placeholder="edad"
+                    />
+                </label>
 
-                    <div className="form_group_select">
-                        <label htmlFor="filtro__saldo">Saldo:</label>
-                        <Select
-                            options={options_saldo}
-                            width="100%"
-                            changeSelection={setSaldoCriterio}
-                            onChange={() => console.log("cambioooo")}
-                            value={saldoCriterio}
-                        />
-                        <input
-                            type="number"
-                            name="saldo"
-                            id="filtro__saldo"
-                            value={saldo > 0 ? saldo : ""}
-                            onChange={(e) => setSaldo(e.target.value === "" ? 0:parseInt(e.target.value))}
-                            placeholder="monto"
-                        />
-                    </div>
-                    <button type="submit" className="filtros__button">
-                        Buscar
-                    </button>
-                    {filterActive ? (
-                    <button className="remove_filters__btn" onClick={removeFilters}>
+                <div className="form_group_select">
+                    <label htmlFor="filtro__anyo_nacimiento">
+                        Años de nacimiento:
+                    </label>
+                    <Select
+                        options={options_anyo_nacimiento}
+                        width="100%"
+                        directionShow="top"
+                        changeSelection={setAnyoNacimiento}
+                        value={anyoNacimiento}
+                    />
+                </div>
+
+                <div className="form_group_select">
+                    <label htmlFor="filtro__tipo_cuenta">Tipo de cuenta:</label>
+                    <Select
+                        options={options_tipo_cuenta}
+                        width="100%"
+                        changeSelection={setTipoCuenta}
+                        value={tipoCuenta}
+                    />
+                </div>
+
+                <div className="form_group_select">
+                    <label htmlFor="filtro__saldo">Saldo:</label>
+                    <Select
+                        options={options_saldo}
+                        width="100%"
+                        changeSelection={setSaldoCriterio}
+                        onChange={() => console.log("cambioooo")}
+                        value={saldoCriterio}
+                    />
+                    <input
+                        type="number"
+                        name="saldo"
+                        id="filtro__saldo"
+                        value={saldo > 0 ? saldo : ""}
+                        onChange={(e) =>
+                            setSaldo(
+                                e.target.value === ""
+                                    ? 0
+                                    : parseInt(e.target.value)
+                            )
+                        }
+                        placeholder="monto"
+                    />
+                </div>
+                <button type="submit" className="filtros__button">
+                    Buscar
+                </button>
+                {filterActive ? (
+                    <button
+                        className="remove_filters__btn"
+                        onClick={removeFilters}
+                    >
                         Quitar filtros ×
                     </button>
                 ) : (
                     ""
                 )}
-                </form>
-            </nav>
+            </form>
+        </nav>
     );
 }
