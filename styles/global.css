@@ -66,6 +66,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 input[type="number"] {
+    appearance: textfield;
     -moz-appearance: textfield;
 }
 
@@ -152,6 +153,10 @@ button:hover {
 .modal__saldo {
     font-size: 2.7rem;
     font-weight: 500;
+}
+
+.modal__saldo::first-letter {
+    font-size: 1.5rem;
 }
 
 .modal__saldo div {
