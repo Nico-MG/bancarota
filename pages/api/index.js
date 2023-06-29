@@ -22,7 +22,7 @@ export default async function index(req, res) {
     const http_query = req.query;
     http_query.pageSize = req.query.pageSize
         ? parseInt(req.query.pageSize)
-        : 10;
+        : 12;
     http_query.page = req.query.page ? parseInt(req.query.page) : 1;
 
     const query_string = query_db(http_query);
@@ -40,14 +40,8 @@ export default async function index(req, res) {
         })
         .join("");
 
-    const previousPage =
-        http_query.page > 1
-            ? http_query.page - 1
-            : "";
-    const nextPage =
-        http_query.page === totalPages
-            ? ""
-            : http_query.page + 1
+    const previousPage = http_query.page > 1 ? http_query.page - 1 : "";
+    const nextPage = http_query.page === totalPages ? "" : http_query.page + 1;
 
     res.status(200).json({
         page: http_query.page,
@@ -74,18 +68,24 @@ function query_db(http_query) {
 }
 
 function add_query_filters(http_query) {
-    const { id, run, nombre, apellido, fecha_nacimiento, edad, numero, saldo, criterio, tipo } =
-        http_query;
+    const {
+        id,
+        run,
+        nombre,
+        apellido,
+        fecha_nacimiento,
+        edad,
+        numero,
+        saldo,
+        criterio,
+        tipo,
+    } = http_query;
 
     const query_elements = [
         id ? `id=${id}` : "",
         run ? `run='${run}'` : "",
-        nombre
-            ? `LOWER(nombre) = '${nombre}'`
-            : "",
-        apellido
-            ? `LOWER(apellido) = '${apellido}'`
-            : "",
+        nombre ? `LOWER(nombre) = '${nombre}'` : "",
+        apellido ? `LOWER(apellido) = '${apellido}'` : "",
         fecha_nacimiento ? `fecha_nacimiento BETWEEN ${fecha_nacimiento}` : "",
         edad ? `edad=${edad}` : "",
         numero ? `numero='${numero}'` : "",

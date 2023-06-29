@@ -3,7 +3,6 @@
     src: url("fonts/Nunito-VariableFont_wght.ttf");
 }
 
-
 @import url("./reset.css");
 @import url("./login.css");
 @import url("./Notification.css");
@@ -13,7 +12,7 @@
     outline: 0px red solid;
 }
 
-html{
+html {
     font-size: 18px;
 }
 
@@ -109,16 +108,15 @@ button:hover {
     position: fixed;
     display: flex;
     z-index: 999;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(255, 255, 255, 0.10);
+    background-color: rgba(255, 255, 255, 0.1);
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(6px);
-
 }
 
 .modal__content {
@@ -141,33 +139,30 @@ button:hover {
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem;
-    background: linear-gradient(124deg, #E4CA44 0%, #FEEE9E 100%);
+    background: linear-gradient(124deg, #e4ca44 0%, #feee9e 100%);
     border-radius: 12px;
 }
 
-.modal__texto--saldo{
+.modal__texto--saldo {
     font-size: 1.8rem;
     color: black;
     font-weight: 300;
-    
 }
 
-.modal__saldo{
+.modal__saldo {
     font-size: 2.7rem;
     font-weight: 500;
-    display: flex;
-    align-items: baseline;
 }
 
 .modal__saldo div {
     position: relative;
     font-size: 1.3rem;
     height: 100%;
-    bottom: .1rem;
+    bottom: 0.1rem;
 }
 
 .modal__header--dos,
-.modal__header--tres{
+.modal__header--tres {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -190,11 +185,11 @@ button:hover {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: .7rem;
+    gap: 0.7rem;
 }
 
 .modal__close {
-    padding: .3rem 1rem;
+    padding: 0.3rem 1rem;
 }
 
 /* HEADER */
@@ -210,18 +205,18 @@ button:hover {
     height: 6.5rem;
 }
 
-.header__logo{
+.header__logo {
     position: relative;
-    left:-2.5rem;
+    left: -2.5rem;
     user-select: none;
 }
 
-.header__logoName{
+.header__logoName {
     user-select: none;
 }
 
-.header__cerrar{
-    padding: .23rem .6rem;
+.header__cerrar {
+    padding: 0.23rem 0.6rem;
 }
 .header__datos {
     display: flex;
@@ -232,7 +227,7 @@ button:hover {
 }
 
 .header__datos h4 {
-    margin-bottom: .3rem;
+    margin-bottom: 0.3rem;
     color: white;
 }
 
@@ -317,7 +312,7 @@ button:hover {
 
 .table {
     border: none;
-    background-color: #EBEBEB;
+    background-color: #ebebeb;
     width: 100%;
     border-radius: 9px;
     border-spacing: 1px;
@@ -325,10 +320,10 @@ button:hover {
 }
 
 .table th:first-child {
-  border-top-left-radius: 9px;
+    border-top-left-radius: 9px;
 }
 .table th:last-child {
-  border-top-right-radius: 9px;
+    border-top-right-radius: 9px;
 }
 
 .table tr:last-child td:first-child {
@@ -341,7 +336,7 @@ button:hover {
 
 .table td {
     background-color: white;
-    padding: .9rem 1rem;
+    padding: 1rem 1rem;
     font-size: 1rem;
     text-align: center;
 }
@@ -352,15 +347,15 @@ button:hover {
     padding-left: 1.5rem;
 }
 
-.table tr:hover td{
+.table tr:hover td {
     background-color: #faf7e0;
     cursor: pointer;
 }
 
 .table th {
-    background-color: #F0F0F0;
-    padding: 1.3rem;
-    font-size: .9rem;
+    background-color: #f0f0f0;
+    padding: 1.34rem;
+    font-size: 0.9rem;
 }
 
 /* PAGER */
@@ -370,21 +365,21 @@ button:hover {
     display: flex;
     justify-content: center;
     padding: 1rem;
-    gap: .1rem;
+    gap: 0.1rem;
 }
 
 .pager__container button {
-    font-size: .9rem;
+    font-size: 0.9rem;
     background-color: white;
-    border: 1px solid #EBEBEB;
-    padding: .6rem 1rem;
+    border: 1px solid #ebebeb;
+    padding: 0.6rem 1rem;
     font-weight: 400;
 }
 
 .pager__container button:hover {
     background-color: #faf7e0;
-    border: 1px solid #EBEBEB;
-    padding: .6rem 1rem;
+    border: 1px solid #ebebeb;
+    padding: 0.6rem 1rem;
 }
 
 .pager__active {
@@ -393,5 +388,5 @@ button:hover {
 }
 
 .pager__container button:focus {
-    outline: none
+    outline: none;
 }
