@@ -1,4 +1,5 @@
 import { conn } from "../../database";
+import { getToken } from "next-auth/jwt";
 
 // Ejemlo 1
 // Este se usa en el ejemplo de uso del fetch en el front
@@ -19,6 +20,13 @@ export default async function index(req, res) {
 */
 
 export default async function index(req, res) {
+    const token = await getToken({ req });
+    if (!token) {
+        res.status(401).json({});
+        res.end();
+        return null;
+    }
+
     const http_query = req.query;
     http_query.pageSize = req.query.pageSize
         ? parseInt(req.query.pageSize)

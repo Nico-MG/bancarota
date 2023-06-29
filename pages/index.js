@@ -22,7 +22,13 @@ export default function IndexPage() {
 
     useEffect(() => {
         fetch(urlFetch)
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(response.status);
+                }
+
+                return response.json();
+            })
             .then((data) => {
                 data.data = data.data.map((client) => {
                     client.saldo = currencyFormatter({
@@ -42,7 +48,8 @@ export default function IndexPage() {
                     totalPages: data.totalPages,
                     page: data.page,
                 });
-            });
+            })
+            .catch((err) => err);
     }, [urlFetch]);
 
     return (

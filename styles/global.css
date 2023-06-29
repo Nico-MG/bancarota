@@ -387,11 +387,6 @@ button:hover {
     padding: 0.6rem 1rem;
 }
 
-.pager__active {
-    outline: 2px solid #ffd90090;
-    font-weight: 800;
-}
-
 .pager__container button:focus {
     outline: none;
 }
