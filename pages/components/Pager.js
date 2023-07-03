@@ -31,8 +31,7 @@ export default function Pager({ pager, changeUrlFetch }) {
 
         if (page) {
             for (let child of childs) {
-                child.style.outline = "none";
-                child.style.fontWeight = "normal";
+                child.style = "";
             }
 
             childs[page].style.outline = activeStyle;

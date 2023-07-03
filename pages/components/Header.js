@@ -6,8 +6,22 @@ export default function Header() {
 
     return (
         <header className="header">
-            <Image src="/logo_br_header.svg" width={225} height={102} alt="Logo" className="header__logo" />
-            <Image src="/BancaRota.svg" width={267} height={37} alt="Logo BancaRota" className="header__logoName" />
+            <Image
+                src="/logo_br_header.svg"
+                priority={true}
+                width={225}
+                height={102}
+                alt="Logo"
+                className="header__logo"
+            />
+            <Image
+                src="/BancaRota.svg"
+                priority={true}
+                width={267}
+                height={37}
+                alt="Logo BancaRota"
+                className="header__logoName"
+            />
             <div className="header__datos">
                 <h4 className="header__nombre">
                     Bienvenido, {session?.user.name} {session?.user.lastname}
@@ -16,7 +30,6 @@ export default function Header() {
                     Cerrar Sesión
                 </button>
             </div>
-            
         </header>
     );
 }
