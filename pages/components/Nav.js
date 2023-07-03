@@ -59,7 +59,10 @@ export default function Nav({ changeUrlFetch }) {
 
         if (nombre !== "") query.push("nombre=" + nombre.toLowerCase());
         if (apellido !== "") query.push("apellido=" + apellido.toLowerCase());
-        if (run !== "") query.push("run=" + run);
+        if (run !== "")
+            query.push(
+                "run=" + (run.includes(".") ? run.split(".").join("") : run)
+            );
         if (numero !== "") query.push("numero=" + numeroTipo + numero);
         if (edad !== 0) query.push("edad=" + edad);
         if (anyoNacimiento !== "" && anyoNacimiento !== "Todos")
@@ -151,7 +154,7 @@ export default function Nav({ changeUrlFetch }) {
                         id="filtro__run"
                         value={run}
                         onChange={(e) => setRun(e.target.value)}
-                        placeholder="run"
+                        placeholder="12345678-9"
                     />
                 </label>
 
