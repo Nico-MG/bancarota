@@ -20,6 +20,39 @@ export default function IndexPage() {
         return formatter.format(value);
     };
 
+    const formatRUN = (run) => {
+        // 11111111-1 (10)
+        // 1111111-1 (9)
+        if (run.length === 9) {
+            return run.replace(
+                /^(\d{1})(\d{3})(\d{3})-(\d{1})$/,
+                "$1.$2.$3-$4"
+            );
+        } else if (run.length === 10) {
+            return run.replace(
+                /^(\d{2})(\d{3})(\d{3})-(\d{1})$/,
+                "$1.$2.$3-$4"
+            );
+        }
+    };
+
+    const formatDate = (fecha) => {
+        const fecha_original = new Date(fecha);
+
+        const opcionesFormato = {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+        };
+
+        const fechaFormateada = fecha_original.toLocaleDateString(
+            "es-CL",
+            opcionesFormato
+        );
+
+        return fechaFormateada;
+    };
+
     useEffect(() => {
         fetch(urlFetch)
             .then((response) => {
@@ -35,6 +68,10 @@ export default function IndexPage() {
                         currency: "CLP",
                         value: client.saldo,
                     });
+                    client.run = formatRUN(client.run);
+                    client.fecha_nacimiento = formatDate(
+                        client.fecha_nacimiento
+                    );
 
                     return client;
                 });
