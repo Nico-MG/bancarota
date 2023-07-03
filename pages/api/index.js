@@ -27,6 +27,8 @@ export default async function index(req, res) {
         return null;
     }
 
+    // Si esta autenticado se ejecuta lo siguiente
+
     const http_query = req.query;
     http_query.pageSize = req.query.pageSize
         ? parseInt(req.query.pageSize)
@@ -89,11 +91,15 @@ function add_query_filters(http_query) {
         tipo,
     } = http_query;
 
+    const eliminarAcentos = (column, param) => {
+        return `TRANSLATE(LOWER(${column}),'aeiou', 'áéíóú') = TRANSLATE('${param}','aeiou', 'áéíóú')`;
+    };
+
     const query_elements = [
         id ? `id=${id}` : "",
         run ? `run='${run}'` : "",
-        nombre ? `LOWER(nombre) = '${nombre}'` : "",
-        apellido ? `LOWER(apellido) = '${apellido}'` : "",
+        nombre ? eliminarAcentos("nombre", nombre) : "",
+        apellido ? eliminarAcentos("apellido", apellido) : "",
         fecha_nacimiento ? `fecha_nacimiento BETWEEN ${fecha_nacimiento}` : "",
         edad ? `edad=${edad}` : "",
         numero ? `numero='${numero}'` : "",
