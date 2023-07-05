@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function Pager({ pager, changeUrlFetch }) {
+export default function Pager({ pager, changeUrl, orderData }) {
     /* 
         "previousPage": "",
         "nextPage": "http://localhost:3000/api/?page=2",
@@ -18,12 +18,7 @@ export default function Pager({ pager, changeUrlFetch }) {
     const activeFontWeight = 600;
 
     const generateFetch = (page) => {
-        changeUrlFetch(
-            "http://localhost:3000/api/?page=" +
-                page +
-                "filters=" +
-                pager?.filters
-        );
+        changeUrl({ page: page });
     };
 
     const setActive = (page) => {

@@ -3,7 +3,7 @@ import InformationTable from "./InformationTable";
 import Nav from "./Nav";
 import Image from "next/image";
 
-export default function Main({ data, changeUrlFetch, pager }) {
+export default function Main({ data, changeUrl, pager, orderData }) {
     const [results, setResults] = useState(true);
 
     useEffect(() => {
@@ -14,13 +14,14 @@ export default function Main({ data, changeUrlFetch, pager }) {
 
     return (
         <main className="main">
-            <Nav changeUrlFetch={changeUrlFetch} />
+            <Nav changeUrl={changeUrl} />
 
             {results ? (
                 <InformationTable
                     data={data}
                     pager={pager}
-                    changeUrlFetch={changeUrlFetch}
+                    changeUrl={changeUrl}
+                    orderData={orderData}
                 />
             ) : (
                 <div className="search__result_message">

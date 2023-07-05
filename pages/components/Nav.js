@@ -36,7 +36,7 @@ const options_saldo = [
     { id: 2, label: "Montos inferiores a:", value: "<" },
 ];
 
-export default function Nav({ changeUrlFetch }) {
+export default function Nav({ changeUrl }) {
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
     const [run, setRun] = useState("");
@@ -52,8 +52,6 @@ export default function Nav({ changeUrlFetch }) {
 
     const handleFilters = (event) => {
         event.preventDefault();
-
-        let url = "http://localhost:3000/api/?";
 
         let query = [];
 
@@ -77,9 +75,7 @@ export default function Nav({ changeUrlFetch }) {
             return 0;
         }
 
-        url += query.join("&");
-
-        changeUrlFetch(url);
+        changeUrl({ queryFilters: query.join("&"), page: 1 });
         setFilterActive(true);
     };
 
@@ -99,7 +95,7 @@ export default function Nav({ changeUrlFetch }) {
     const removeFilters = () => {
         setFilterActive(false);
         resetStates();
-        changeUrlFetch("http://localhost:3000/api/");
+        changeUrl({ queryFilters: "" });
     };
 
     const setNumeroDecorado = (event) => {

@@ -8,7 +8,39 @@ import Head from "next/head";
 export default function IndexPage() {
     const [datos, setDatos] = useState(null);
     const [pagerData, setPagerData] = useState(null);
-    const [urlFetch, setUrlFetch] = useState("http://localhost:3000/api/");
+    const [orderData, setOrderData] = useState(null);
+    const [urlFetch, setUrlFetch] = useState("http://localhost:3000/api/?");
+    const [query, setQuery] = useState("page=1&order=id&order_type=ASC");
+    const [filters, setFilters] = useState("");
+
+    const changeQueryValue = (query, varName, newValue) => {
+        const scapedVarName = encodeURIComponent(varName);
+        const scapedNewValue = encodeURIComponent(newValue);
+
+        const regex = new RegExp(`(${scapedVarName}=)([^&]+)`, "g");
+        const newQuery = query.replace(regex, `$1${scapedNewValue}`);
+
+        console.log(newQuery);
+
+        return newQuery;
+    };
+
+    const changeURL = ({
+        page = null,
+        queryFilters = null,
+        orderBy = null,
+        orderType = null,
+    }) => {
+        let newQuery = query;
+
+        if (page) newQuery = changeQueryValue(query, "page", page);
+        if (orderBy) newQuery = changeQueryValue(newQuery, "order", orderBy);
+        if (orderType)
+            newQuery = changeQueryValue(newQuery, "order_type", orderType);
+
+        setQuery(newQuery);
+        if (queryFilters !== null) setFilters("&" + queryFilters);
+    };
 
     const currencyFormatter = ({ currency, value }) => {
         const formatter = new Intl.NumberFormat("es-CL", {
@@ -54,6 +86,12 @@ export default function IndexPage() {
     };
 
     useEffect(() => {
+        const url = "http://localhost:3000/api/?";
+        setUrlFetch(url + query + filters);
+        console.log("URL: " + url + query + filters);
+    }, [query, filters]);
+
+    useEffect(() => {
         fetch(urlFetch)
             .then((response) => {
                 if (!response.ok) {
@@ -85,6 +123,8 @@ export default function IndexPage() {
                     totalPages: data.totalPages,
                     page: data.page,
                 });
+
+                setOrderData(data.order);
             })
             .catch((err) => err);
     }, [urlFetch]);
@@ -97,8 +137,9 @@ export default function IndexPage() {
             <Header />
             <Main
                 data={datos?.data}
-                changeUrlFetch={setUrlFetch}
+                changeUrl={changeURL}
                 pager={pagerData}
+                orderData={orderData}
             />
             <Notification />
         </Protegido>

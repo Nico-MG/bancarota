@@ -20,12 +20,12 @@ export default async function index(req, res) {
 */
 
 export default async function index(req, res) {
-    const token = await getToken({ req });
+    /* const token = await getToken({ req });
     if (!token) {
         res.status(401).json({});
         res.end();
         return null;
-    }
+    } */
 
     // Si esta autenticado se ejecuta lo siguiente
 
@@ -42,7 +42,7 @@ export default async function index(req, res) {
 
     const totalPages = Math.ceil(count.rows[0].count / http_query.pageSize);
 
-    const { page, pageSize, ...filters } = req.query;
+    const { page, pageSize, order, order_type, ...filters } = req.query;
 
     const query_filter_prev = Object.entries(filters)
         .map((filter) => {
@@ -61,20 +61,24 @@ export default async function index(req, res) {
         nextPage,
         filters: query_filter_prev,
         totalPages,
+        order: `&order=${order}&type=${order_type}`,
     });
 }
 
 function query_db(http_query) {
-    const query = "SELECT * FROM clients_data" + add_query_filters(http_query);
-    const query_count =
-        "SELECT count(*) FROM clients_data" + add_query_filters(http_query);
+    const { order, order_type } = http_query;
+
+    const query_filters = add_query_filters(http_query);
+    const query = "SELECT * FROM clients_data" + query_filters;
+    const query_count = "SELECT count(*) FROM clients_data" + query_filters;
 
     const offset = (http_query.page - 1) * http_query.pageSize;
+    const limit = `LIMIT ${http_query.pageSize} OFFSET ${offset}`;
 
-    return [
-        query_count,
-        query + ` ORDER BY id LIMIT ${http_query.pageSize} OFFSET ${offset}`,
-    ];
+    const order_by = order ?? "id";
+    const type = order_type ?? "ASC";
+
+    return [query_count, query + ` ORDER BY ${order_by} ${type} ${limit}`];
 }
 
 function add_query_filters(http_query) {

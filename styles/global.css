@@ -197,6 +197,31 @@ button:hover {
     padding: 0.3rem 1rem;
 }
 
+/* @-webkit-keyframes animacion-modal {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes animacion-modal {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+} */
+
 @-webkit-keyframes animacion-modal {
     0% {
         -webkit-transform: translateY(600px) rotateX(30deg) scale(0);
@@ -394,6 +419,14 @@ button:hover {
     background-color: #f0f0f0;
     padding: 1.34rem;
     font-size: 0.9rem;
+}
+
+.table__order_col span {
+    cursor: pointer;
+}
+
+.table__order_col span:hover {
+    text-decoration: underline;
 }
 
 .search__result_message {

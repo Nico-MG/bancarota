@@ -5,7 +5,7 @@
 GET {{api}}
 
 # Ejemplo 2
-@api2 = http://localhost:3000/api/?fecha_nacimiento=1990-01-01
+@api2 = http://localhost:3000/api/?page=2&order=saldo&order_type=ASC&nombre=maria
 
 ### Get data by query
 GET {{api2}}
