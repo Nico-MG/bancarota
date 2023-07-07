@@ -32,6 +32,7 @@ export default function Main({ data, changeUrl, pager, orderData }) {
                         height={300}
                         style={{ borderRadius: "100%", opacity: 0.9 }}
                         alt="No results"
+                        draggable="false"
                     />
                     No hay resultados para esta busqueda...
                 </div>

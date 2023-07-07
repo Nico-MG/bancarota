@@ -228,7 +228,6 @@ export default function Nav({ changeUrl }) {
                         options={options_saldo}
                         width="100%"
                         changeSelection={setSaldoCriterio}
-                        onChange={() => console.log("cambioooo")}
                         value={saldoCriterio}
                     />
                     <input

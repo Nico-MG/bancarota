@@ -24,7 +24,7 @@ export default function InformationTable({
     });
 
     const order_type = ["default", "ASC", "DESC"];
-    const unicode_indicator = ["▲", "▼"];
+    const unicode_indicator = ["▴", "▾"];
 
     const changeVisibility = () => {
         setModal(!modal);
@@ -88,13 +88,13 @@ export default function InformationTable({
                             <span onClick={orderByHandler("nombre")}>
                                 Nombre
                             </span>
-                            {orderIndicator("nombre")}
+                            <span>{" " + orderIndicator("nombre")}</span>
                         </th>
                         <th>RUN</th>
                         <th>Tipo de cuenta</th>
                         <th className="table__order_col">
                             <span onClick={orderByHandler("saldo")}>Saldo</span>
-                            {orderIndicator("saldo")}
+                            <span>{" " + orderIndicator("saldo")}</span>
                         </th>
                     </tr>
                 </thead>
