@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Notification } from "./components/Notification";
+import Notification from "./components/Notification";
 import Protegido from "./components/Protegido";
 import Header from "./components/Header";
 import Main from "./components/Main";

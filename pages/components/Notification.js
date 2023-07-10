@@ -1,4 +1,4 @@
-export function Notification() {
+export default function Notification() {
     return <div className="notification__container"></div>;
 }
 

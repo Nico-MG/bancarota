@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import LoginForm from "./components/LoginForm";
 
-import { Notification, ShowError } from "../components/Notification";
+import Notification, { ShowError } from "../components/Notification";
 import Head from "next/head";
 
 export default function Login() {
