@@ -3,7 +3,7 @@ create schema public;
 
 create table cliente (
     id serial primary key,
-    Run varchar(11) not null,
+    Run varchar(11) unique not null,
     nombre varchar(20) not NULL,
     apellido varchar(20) not NULL,
     fecha_nacimiento Date not NULL
